@@ -1,0 +1,23 @@
+// 顶部固定定位
+.fixedTab {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background-color: #fff;
+}
+
+// search搜索框
+//.search {
+//    margin-right: 20rpx;
+//    display: flex;
+//    align-items: center;
+//    background-color: #fff;
+//    width: 580rpx;
+//    height: 60rpx;
+//    border: 1rpx solid var(--main-color);
+//    .iconSearch {
+//        color: $desc-font-color;
+//    }
+//}

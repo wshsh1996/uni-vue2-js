@@ -1,16 +1,58 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "用户管理",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "购车订单",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
+		"navigationBarBackgroundColor": "#FFF",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#CCC",
+		"selectedColor": "#ffab2c",
+		"backgroundColor": "#FFF",
+		"borderStyle": "white",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "用户管理",
+				"iconPath": "static/tabbar/user.png",
+				"selectedIconPath": "static/tabbar/user_active.png"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"text": "购车订单",
+				"iconPath": "static/tabbar/order.png",
+				"selectedIconPath": "static/tabbar/order_active.png"
+			},
+			{
+				"pagePath": "pages/home/home",
+				"text": "个人中心",
+				"iconPath": "static/tabbar/home.png",
+				"selectedIconPath": "static/tabbar/home_active.png"
+			}
+		]
 	}
 }

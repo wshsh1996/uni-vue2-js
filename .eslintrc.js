@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    node: true
   },
   extends: [
     'eslint:recommended',
@@ -46,13 +47,12 @@ module.exports = {
         useTabs: false,
         singleQuote: true,
         semi: false,
-        trailingComma: 'none',
-        bracketSpacing: true,
-        jsxBracketSameLine: false,
-        arrowParens: 'avoid',
-        endOfLine: 'auto',
-        proseWrap: 'preserve'
+        trailingComma: 'none'
       }
     ]
+  },
+  globals: {
+    uni: true,
+    wx: true
   }
 }

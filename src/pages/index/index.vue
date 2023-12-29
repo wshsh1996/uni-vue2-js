@@ -1,52 +1,37 @@
 <template>
-  <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">
-        {{ title }}
-      </text>
+  <sp-card>
+    <view class="fixedTab">
+      <!--   搜索栏   -->
+      <view>
+        <sp-search></sp-search>
+      </view>
+      <!--   tabs   -->
+      <view></view>
+      <!--      <view :style="{ backgroundColor: `var(&#45;&#45;main-color)` }" @click="changeLoading">123</view>-->
     </view>
-  </view>
+  </sp-card>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+import SpCard from '@/components/spCard.vue'
+import SpSearch from '@/components/spSearch.vue'
 export default {
   name: 'Index',
+  components: { SpSearch, SpCard },
   data() {
     return {
-      title: 'Hello',
-      name: '123'
+      title: 'Hello'
     }
   },
   onLoad() {},
-  methods: {}
+  methods: {
+    ...mapMutations('config', ['setShowLoading']),
+    changeLoading() {
+      this.setShowLoading(true)
+    }
+  }
 }
 </script>
 
-<style>
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
-}
-</style>
+<style lang="scss" scoped></style>
