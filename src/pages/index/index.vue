@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { test } from '@/utils/test'
 export default {
   name: 'Index',
   data() {
