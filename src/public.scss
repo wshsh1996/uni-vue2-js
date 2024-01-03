@@ -1,3 +1,8 @@
+// 主题色
+.main-color {
+    color: var(--main-color);
+}
+
 // 顶部固定定位
 .fixedTab {
     position: fixed;
@@ -8,16 +13,15 @@
     background-color: #fff;
 }
 
-// search搜索框
-//.search {
-//    margin-right: 20rpx;
-//    display: flex;
-//    align-items: center;
-//    background-color: #fff;
-//    width: 580rpx;
-//    height: 60rpx;
-//    border: 1rpx solid var(--main-color);
-//    .iconSearch {
-//        color: $desc-font-color;
-//    }
-//}
+// 按钮背景颜色
+.btn-primary {
+    color: #fff;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+// 没有头像时，默认显示图片
+.avatar-default {
+    background-image: url('~@/static/logo.png');
+
+}

@@ -1,7 +1,16 @@
 <script>
+import store from '@/store'
+import { ApiInitConfig } from '@/api/public'
 export default {
   onLaunch: function () {
-    console.log('App Launch')
+    ApiInitConfig().then((res) => {
+      store.commit('config/getConfig', res)
+      const token = store.state.token.token
+      if (token)
+        uni.switchTab({
+          url: '/pages/index/index'
+        })
+    })
   },
   onShow: function () {
     console.log('App Show')

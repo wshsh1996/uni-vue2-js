@@ -1175,9 +1175,9 @@ button.cuIcon.lg {
 	filter: grayscale(1);
 }
 
-.cu-list+.cu-list {
-	margin-top: 30upx
-}
+/*.cu-list+.cu-list {*/
+/*	margin-top: 30upx*/
+/*}*/
 
 .cu-list>.cu-item {
 	transition: all .6s ease-in-out 0s;
@@ -1950,6 +1950,7 @@ button.cuIcon.lg {
 }
 
 .nav .cu-item {
+	position: relative;
 	height: 90upx;
 	display: inline-block;
 	line-height: 90upx;
@@ -1957,9 +1958,19 @@ button.cuIcon.lg {
 	padding: 0 20upx;
 }
 
-.nav .cu-item.cur {
-	border-bottom: 4upx solid;
-}
+/*.nav .cu-item.cur:after {*/
+/*	content: "";*/
+/*	position: absolute;*/
+/*	width: 50%;*/
+/*	bottom: 0;*/
+/*	left: 50%;*/
+/*	transform: translateX(-50%);*/
+/*	z-index: 1;*/
+/*	border-bottom: 4upx solid var(--main-color);*/
+/*}*/
+/*.nav .cu-item.cur {*/
+/*	border-bottom: 4upx solid;*/
+/*}*/
 
 /* ==================
          时间轴

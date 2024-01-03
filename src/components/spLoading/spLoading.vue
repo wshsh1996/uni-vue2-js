@@ -141,6 +141,10 @@ export default {
           zIndex: ''
         }
       }
+    },
+    showLoading: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -154,32 +158,17 @@ export default {
   computed: {
     ...mapState('config', ['showLoading'])
   },
+  // 监听showLoading变化
   watch: {
     showLoading: {
+      immediate: true,
       handler(val) {
         let that = this
         that.SHOW = !!val
       }
     }
   },
-  methods: {
-    //显示
-    show() {
-      var _this = this
-      return new Promise(function (resolve) {
-        _this.SHOW = true
-        resolve()
-      })
-    },
-    //隐藏
-    hide() {
-      var _this = this
-      return new Promise(function (resolve) {
-        _this.SHOW = false
-        resolve()
-      })
-    }
-  }
+  methods: {}
 }
 </script>
 

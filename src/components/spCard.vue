@@ -10,7 +10,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapState('config', ['mainColor'])
+    ...mapState('config', ['mainColor', 'showLoading'])
   }
 }
 </script>
@@ -21,9 +21,9 @@ export default {
       '--main-color': mainColor
     }"
   >
-    <sp-loading :type="3"></sp-loading>
+    <sp-loading :show-loading="showLoading" :type="3"></sp-loading>
     <slot></slot>
   </view>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped></style>
