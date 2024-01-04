@@ -87,11 +87,7 @@ export default {
     async getDetail(id) {
       this.userInfo = await ApiCustomerDetail(id)
     },
-    // 获取用户卡包
-    async getCardList(id) {
-      const res = await ApiCustomerCardList(id)
-      this.cardList = res.data
-    },
+
     // 上拉回调
     upCallback(page) {
       let pageNum = page.num // 页码, 默认从1开始

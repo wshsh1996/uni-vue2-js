@@ -68,8 +68,4 @@ export default {
   </view>
 </template>
 
-<style scoped lang="scss">
-.bth-height {
-  height: 44rpx;
-}
-</style>
+<style scoped lang="scss"></style>

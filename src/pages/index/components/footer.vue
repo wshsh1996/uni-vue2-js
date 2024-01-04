@@ -1,15 +1,21 @@
 <script>
+import { getRect } from '@/utils/lib'
+
 export default {
   name: 'Foot',
+
   data() {
-    return {}
+    return {
+      bottom: 0
+    }
   },
+
   methods: {}
 }
 </script>
 
 <template>
-  <view class="flex justify-around padding-lr btn-fixed-bottom">
+  <view class="flex justify-around padding-lr btn-fixed-bottom footer">
     <view class="round text-center wth-btn margin-right padding-lr padding-tb-xs btn-cancel"
       >取消</view
     >
