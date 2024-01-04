@@ -58,47 +58,43 @@ export default {
 
 <template>
   <sp-card>
-    <view class="page-contain">
-      <me-scroll-body
-        :bottom="bottom + 'px'"
-        @init="mescrollInit"
-        @down="downCallback"
-        @up="upCallback"
-      >
-        <view class="padding-lr padding-tb bg-white">
-          <checkbox-group v-for="item in coupons" :key="item.id" class="padding-tb-xs">
-            <view class="flex align-center item-box">
-              <label>
-                <checkbox class="round main margin-right"></checkbox>
-              </label>
-              <view class="flex flex-sub align-center main-box">
-                <view class="l-box">
-                  <view class="text-price text-bold">{{ item.amount }}</view>
-                  <view class="text-sm">满{{ item.full_amount }}可用</view>
-                </view>
-                <view class="r-box flex-sub text-gray">
-                  <view class="text-bold text-black text-df name-box">{{ item.title }}</view>
-                  <view class="text-sm">
-                    <view>使用范围：</view>
-                    <view>有效期至：{{ item.created_at }}</view>
-                  </view>
+    <me-scroll-body
+      :bottom="bottom + 'px'"
+      @init="mescrollInit"
+      @down="downCallback"
+      @up="upCallback"
+    >
+      <view class="padding-lr padding-tb bg-white">
+        <checkbox-group v-for="item in coupons" :key="item.id" class="padding-tb-xs">
+          <view class="flex align-center item-box">
+            <label>
+              <checkbox class="round main margin-right"></checkbox>
+            </label>
+            <view class="flex flex-sub align-center main-box">
+              <view class="l-box">
+                <view class="text-price text-bold">{{ item.amount }}</view>
+                <view class="text-sm">满{{ item.full_amount }}可用</view>
+              </view>
+              <view class="r-box flex-sub text-gray">
+                <view class="text-bold text-black text-df name-box">{{ item.title }}</view>
+                <view class="text-sm">
+                  <view>使用范围：</view>
+                  <view>有效期至：{{ item.created_at }}</view>
                 </view>
               </view>
             </view>
-          </checkbox-group>
-        </view>
-      </me-scroll-body>
-      <!--  底部按钮  -->
-      <Foot @ready="Bottom"></Foot>
+          </view>
+        </checkbox-group>
+      </view>
+    </me-scroll-body>
+    <!--  底部按钮  -->
+    <view class="foot-box">
+      <Foot></Foot>
     </view>
   </sp-card>
 </template>
 
 <style lang="scss" scoped>
-.page-contain {
-  min-height: 100vh;
-  background-color: #fff;
-}
 .item-box {
   width: 100%;
 }
@@ -136,5 +132,13 @@ export default {
   display: flex;
   align-items: center;
   height: 50%;
+}
+
+.foot-box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 160rpx;
+  background-color: #fff;
 }
 </style>
