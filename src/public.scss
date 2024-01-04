@@ -19,6 +19,26 @@
     background-color: var(--main-color);
     border-color: var(--main-color);
 }
+// 底部按钮宽度
+.wth-btn {
+    width: 30%;
+}
+// 底部按钮固定，安全区域
+.btn-fixed-bottom {
+    position: fixed;
+    bottom: env(safe-area-inset-bottom);
+    left: 0;
+    right: 0;
+    z-index: 200;
+    width: 100%;
+}
+
+// 划卡按钮
+.card-btn {
+    padding-top: 7rpx;
+    padding-bottom: 7rpx;
+    width: 120rpx;
+}
 
 // 没有头像时，默认显示图片
 .avatar-default {

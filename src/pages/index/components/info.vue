@@ -7,6 +7,10 @@ export default {
       default() {
         return {}
       }
+    },
+    bodyTop: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -16,7 +20,10 @@ export default {
 </script>
 
 <template>
-  <view class="margin-top-sm padding-lr-xl padding-tb flex flex-direction justify-between bg-white">
+  <view
+    class="padding-lr-xl padding-tb flex flex-direction justify-between bg-white"
+    :style="'margin-top:' + bodyTop + 'px'"
+  >
     <view class="padding-tb-xs flex">
       <view class="flex-sub text-gray">微信昵称：</view>
       <view class="flex-twice text-bold">{{ info.name }}</view>

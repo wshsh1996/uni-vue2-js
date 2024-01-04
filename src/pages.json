@@ -35,6 +35,27 @@
         "navigationBarTitleText": "用户详情",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/index/components/giveVip",
+      "style": {
+        "navigationBarTitleText": "赠送会员",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/index/components/selectCoupon",
+      "style": {
+        "navigationBarTitleText": "选择优惠券",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/index/components/giveSubCard",
+      "style": {
+        "navigationBarTitleText": "赠送次卡",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {

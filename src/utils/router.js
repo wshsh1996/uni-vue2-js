@@ -37,7 +37,6 @@ export function ToPath(url, successEmit = null, data = {}, isLogin = true) {
       })
       .then()
   } else {
-    console.log(url, 'url')
     uni.navigateTo({
       url: url[0] === '/' ? url : '/' + url,
       events: {

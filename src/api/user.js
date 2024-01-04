@@ -27,3 +27,21 @@ export const ApiCustomerList = (page, page_size, is_member, keyword) => {
 export const ApiCustomerDetail = (id) => {
   return http.get(`/customer/${id}`)
 }
+
+/**
+ * 客户卡包
+ * @params user_id 用户id
+ * @params page 页码
+ * @params page_size 页数
+ * */
+export const ApiCustomerCardList = (user_id, page = 1, page_size = 10) => {
+  return http.get(`/customer_card?user_id=${user_id}&page=${page}&page_size=${page_size}`)
+}
+
+/**
+ * 划卡
+ * @params id 用户id
+ * */
+export const ApiCard = (id) => {
+  return http.put(`/customer_card/${id}`)
+}

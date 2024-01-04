@@ -13,12 +13,8 @@ export default {
     return {}
   },
   methods: {
-    ImagePath(image) {
-      return ImagePath(image)
-    },
-    phoneHide(phone) {
-      return phoneHide(phone)
-    },
+    ImagePath,
+    phoneHide,
     // 跳转详情页
     toDetailPage(id) {
       ToPath(`/pages/index/components/detail?id=${id}`)
