@@ -127,9 +127,9 @@ export default {
       if (page === 'coupon') {
         ToPath(`pages/index/components/selectCoupon?id=${this.id}`)
       } else if (page === 'vip') {
-        ToPath('pages/index/components/giveVip')
+        ToPath(`pages/index/components/giveVip?id=${this.id}`)
       } else if (page === 'subCard') {
-        ToPath('pages/index/components/giveSubCard')
+        ToPath(`pages/index/components/giveSubCard?id=${this.id}`)
       }
     }
   }

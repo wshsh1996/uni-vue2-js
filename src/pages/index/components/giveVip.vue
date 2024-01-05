@@ -24,7 +24,7 @@
       <!--   有效期时间   -->
       <view class="padding-top-sm padding-left-lg text-grey">有效期：{{ days + '月' }}</view>
       <!--   底部按钮   -->
-      <Foot></Foot>
+      <Foot @confirm="submit"></Foot>
     </view>
   </sp-card>
 </template>
@@ -32,7 +32,8 @@
 <script>
 import SpCard from '@/components/spCard.vue'
 import Foot from '@/pages/index/components/footer.vue'
-import { getVipList } from '@/api/vip'
+import { ApiSendVip, getVipList } from '@/api/vip'
+import { Toast } from '@/utils/toast'
 
 export default {
   components: { Foot, SpCard },
@@ -40,10 +41,12 @@ export default {
     return {
       data: [],
       vipId: 0,
-      days: ''
+      days: '',
+      userId: null
     }
   },
-  onLoad() {
+  onLoad(options) {
+    this.userId = options.id
     this.getVipList()
   },
   methods: {
@@ -54,6 +57,10 @@ export default {
     selectVip(obj) {
       this.vipId = obj.id
       this.days = obj.duration
+    },
+    async submit() {
+      await ApiSendVip({ user_id: this.userId, plan_id: this.vipId })
+      Toast('赠送成功')
     }
   }
 }

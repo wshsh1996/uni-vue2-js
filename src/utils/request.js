@@ -61,6 +61,7 @@ http.interceptors.response.use(
         .then()
     }
 
+    store.commit('config/setShowLoading', false)
     return Promise.reject(error)
   }
 )

@@ -1,13 +1,12 @@
 <script>
 export default {
   name: 'Foot',
-
+  emits: ['confirm'],
   data() {
     return {
       bottom: 0
     }
   },
-
   methods: {
     Return() {
       uni.navigateBack()
