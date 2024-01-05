@@ -8,21 +8,21 @@
           :key="item.id"
           class="vip-card"
           :class="{ on: item.id === vipId }"
-          @click="selectVip(item.id)"
+          @click="selectVip(item)"
         >
           <view class="item-contain text-xl">
             <view class="text-bold" :class="{ on_text: item.id === vipId }">{{ item.name }}</view>
             <view class="text-price text-bold" :class="{ on_text: item.id === vipId }">{{
-              item.price.toFixed(2)
+              Number(item.price).toFixed(2)
             }}</view>
             <view class="text-price text-line-through text-df">{{
-              item.originPrice.toFixed(2)
+              Number(item.price).toFixed(2)
             }}</view>
           </view>
         </view>
       </scroll-view>
       <!--   有效期时间   -->
-      <view class="padding-top-sm padding-left-lg text-grey">有效期：365天</view>
+      <view class="padding-top-sm padding-left-lg text-grey">有效期：{{ days + '月' }}</view>
       <!--   底部按钮   -->
       <Foot></Foot>
     </view>
@@ -32,23 +32,28 @@
 <script>
 import SpCard from '@/components/spCard.vue'
 import Foot from '@/pages/index/components/footer.vue'
+import { getVipList } from '@/api/vip'
 
 export default {
   components: { Foot, SpCard },
   data() {
     return {
-      data: [
-        { id: 1, name: '体验会员', price: 0.01, originPrice: 1 },
-        { id: 2, name: '月卡', price: 1, originPrice: 2 },
-        { id: 3, name: '季卡', price: 1888, originPrice: 5852 },
-        { id: 4, name: '年卡', price: 4999, originPrice: 7899 }
-      ],
-      vipId: 0
+      data: [],
+      vipId: 0,
+      days: ''
     }
   },
+  onLoad() {
+    this.getVipList()
+  },
   methods: {
-    selectVip(id) {
-      this.vipId = id
+    async getVipList() {
+      const { data } = await getVipList()
+      this.data = data
+    },
+    selectVip(obj) {
+      this.vipId = obj.id
+      this.days = obj.duration
     }
   }
 }

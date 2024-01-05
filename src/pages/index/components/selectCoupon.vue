@@ -2,8 +2,9 @@
 import MeScrollBody from '@/uni_modules/mescroll-uni/components/mescroll-body/mescroll-body.vue'
 import MescrollMixins from '@/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-mixins'
 import SpCard from '@/components/spCard.vue'
-import { getCouponList } from '@/api/coupon'
+import { getCouponList, sendCoupon } from '@/api/coupon'
 import Foot from '@/pages/index/components/footer.vue'
+import { Toast } from '@/utils/toast'
 
 export default {
   name: 'SelectCoupon',
@@ -12,7 +13,9 @@ export default {
   data() {
     return {
       coupons: [],
-      bottom: 0
+      bottom: 0,
+      userId: null,
+      couponId: []
     }
   },
   onReady() {
@@ -20,10 +23,10 @@ export default {
     const safeAreaBottom = systemInfo.safeAreaInsets.bottom
     this.bottom = safeAreaBottom + 30
   },
+  onLoad(options) {
+    this.userId = options.id
+  },
   methods: {
-    Bottom(e) {
-      console.log(e, 'e')
-    },
     // 上拉回调
     upCallback(page) {
       let pageNum = page.num // 页码, 默认从1开始
@@ -51,6 +54,13 @@ export default {
     reload() {
       this.reloadList()
       this.topClick()
+    },
+    handleSelect(e) {
+      this.couponId = JSON.parse(JSON.stringify(e.detail.value))
+    },
+    async submit() {
+      await sendCoupon(this.couponId, this.userId)
+      Toast('赠送成功')
     }
   }
 }
@@ -65,10 +75,14 @@ export default {
       @up="upCallback"
     >
       <view class="padding-lr padding-tb bg-white">
-        <checkbox-group v-for="item in coupons" :key="item.id" class="padding-tb-xs">
-          <view class="flex align-center item-box">
+        <checkbox-group @change="handleSelect">
+          <view
+            v-for="item in coupons"
+            :key="item.id"
+            class="flex padding-tb-xs align-center item-box"
+          >
             <label>
-              <checkbox class="round main margin-right"></checkbox>
+              <checkbox class="round main margin-right" :value="item.id"></checkbox>
             </label>
             <view class="flex flex-sub align-center main-box">
               <view class="l-box">
@@ -89,7 +103,7 @@ export default {
     </me-scroll-body>
     <!--  底部按钮  -->
     <view class="foot-box">
-      <Foot></Foot>
+      <Foot @confirm="submit"></Foot>
     </view>
   </sp-card>
 </template>

@@ -28,6 +28,7 @@
 }
 // 底部按钮固定，安全区域
 .btn-fixed-bottom {
+    padding-bottom: 10px;
     position: fixed;
     bottom: env(safe-area-inset-bottom);
     left: 0;
