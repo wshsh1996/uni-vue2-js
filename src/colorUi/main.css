@@ -1487,6 +1487,7 @@ button.cuIcon.lg {
 	align-items: center;
 	min-height: 100upx;
 	justify-content: space-between;
+	border-top: 1rpx solid #f3f3f3;
 }
 
 .cu-bar .action {
@@ -2463,10 +2464,10 @@ button.cuIcon.lg {
 	vertical-align: middle;
 	margin-left: auto;
 	margin-right: auto;
-	width: 680upx;
+	width: 580upx;
 	max-width: 100%;
 	background-color: #f8f8f8;
-	border-radius: 10upx;
+	border-radius: 20upx;
 	overflow: hidden;
 }
 
@@ -3923,3 +3924,20 @@ scroll-view.cu-steps .cu-item {
 .lines-white {
 	color: #ffffff;
 }
+
+
+.absolute{
+	position: absolute;
+}
+.relative{
+	position: relative;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float: right;
+}
+

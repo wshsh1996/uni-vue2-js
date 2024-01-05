@@ -49,3 +49,13 @@
     background-image: url('~@/static/logo.png');
 
 }
+
+// 自定义导航栏
+.navbar{
+    height: 44px;
+    text{
+        font-size: 16px;
+        line-height: 44px;
+        color: #FFFFFF;
+    }
+}
