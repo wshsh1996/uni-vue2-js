@@ -1,13 +1,6 @@
 import http from '@/utils/request'
 
 /**
- * 获取登录信息
- * */
-export const ApiLoginInfo = () => {
-  return http.get('/employee/userinfo')
-}
-
-/**
  * 客户列表
  * @params is_member 默认空全部用户 / 0 非会员 / 1 会员
  * @params keyword 昵称 / 手机号 查询 选填

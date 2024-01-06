@@ -1,7 +1,6 @@
 <script>
 import SpCard from '@/components/spCard.vue'
 import UserInfo from '@/pages/home/components/userInfo.vue'
-import { ToPath } from '@/utils/router'
 import ShowModal from '@/components/showModal.vue'
 
 export default {
@@ -31,9 +30,20 @@ export default {
     }
   },
   methods: {
-    ToPage(path) {
-      this.modalVisible = true
-      // ToPath(path)
+    toPage(path) {
+      if (path === '/pages/login/login') {
+        this.modalVisible = true
+      }
+    },
+    async Confirm(e) {
+      this.modalVisible = e
+      await this.$store.dispatch('user/logout')
+      await uni.reLaunch({
+        url: '/pages/login/login'
+      })
+    },
+    Cancel(e) {
+      this.modalVisible = e
     }
   },
   onLoad() {
@@ -69,7 +79,7 @@ export default {
             v-for="item in menuList"
             :key="item.name"
             class="padding-tb-sm padding-lr-sm flex align-center bg-white"
-            @click="ToPage(item.path)"
+            @click="toPage(item.path)"
           >
             <image class="icon-menu" :src="item.icon"></image>
             <view class="flex-sub">{{ item.name }}</view>
@@ -78,7 +88,12 @@ export default {
         </view>
       </view>
     </view>
-    <show-modal :modal-visible="modalVisible" title="确定退出登录吗?"></show-modal>
+    <show-modal
+      :modal-visible="modalVisible"
+      title="确定退出登录吗?"
+      @confirm="Confirm"
+      @cancel="Cancel"
+    ></show-modal>
   </SpCard>
 </template>
 

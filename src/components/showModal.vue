@@ -11,11 +11,18 @@ export default {
       default: ''
     }
   },
-  emits: ['change'],
+  emits: ['confirm', 'cancel'],
   data() {
     return {}
   },
-  methods: {}
+  methods: {
+    confirm() {
+      this.$emit('confirm', false)
+    },
+    cancel() {
+      this.$emit('cancel', false)
+    }
+  }
 }
 </script>
 
@@ -24,14 +31,8 @@ export default {
     <view class="cu-dialog bg-white">
       <view class="padding-tb-xl flex align-center justify-center tip">{{ title }}</view>
       <view class="cu-bar">
-        <view class="flex-sub bottom-btn" @tap="hideModal">
-          <!--          <button class="cu-btn line-green text-green">取消</button>-->
-          取消
-        </view>
-        <view class="flex-sub bottom-btn-confirm" @tap="hideModal">
-          <!--          <button class="cu-btn bg-green margin-left" @tap="hideModal">确定</button>-->
-          确定
-        </view>
+        <view class="flex-sub bottom-btn" @tap="cancel"> 取消 </view>
+        <view class="flex-sub bottom-btn-confirm" @tap="confirm"> 确定 </view>
       </view>
     </view>
   </view>

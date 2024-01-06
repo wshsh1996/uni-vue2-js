@@ -17,7 +17,8 @@ let timer = null
  */
 export function ToPath(url, successEmit = null, data = {}, isLogin = true) {
   if (!url) {
-    uni.removeStorageSync('token')
+    store.commit('user/removeToken')
+    store.commit('user/logout')
     uni
       .navigateTo({
         url: '/pages/login/login'
@@ -25,12 +26,13 @@ export function ToPath(url, successEmit = null, data = {}, isLogin = true) {
       .then()
     return
   }
-
   if (timer) {
     return
   }
-  if (isLogin && !uni.getStorageSync('token') && !store.state.user.userInfo) {
-    store.commit('token/removeToken')
+  if (isLogin && !store.state.user.token) {
+    console.log(store.state.user.token, 'token')
+    store.commit('user/removeToken')
+    store.commit('user/logout')
     uni
       .navigateTo({
         url: '/pages/login/login'

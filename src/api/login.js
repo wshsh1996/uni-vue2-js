@@ -11,3 +11,17 @@ export const ApiLogin = (username, password) => {
     password
   })
 }
+
+/**
+ * 获取登录信息
+ * */
+export const ApiGetLoginInfo = () => {
+  return http.get('/employee/userinfo')
+}
+
+/**
+ * 退出登录
+ * */
+export const ApiLogout = () => {
+  return http.post('/employee/logout')
+}

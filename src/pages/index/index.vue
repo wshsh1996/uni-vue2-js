@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 import SpCard from '@/components/spCard.vue'
 import SpSearch from '@/components/spSearch.vue'
 import SpTabs from '@/components/spTabs.vue'
@@ -66,8 +65,6 @@ export default {
   },
   onLoad() {},
   methods: {
-    ...mapMutations('config', ['setShowLoading']),
-
     // 回到顶部
     topClick() {
       this.mescroll.scrollTo(0, this.mescroll.optUp.toTop.duration) // 执行回到顶部

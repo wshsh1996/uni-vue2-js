@@ -26,8 +26,7 @@ http.setConfig((config) => {
 // 请求拦截器
 http.interceptors.request.use(
   (config) => {
-    const token = store.state.token.token
-    // const token = uni.getStorageSync('token')
+    let token = store.state.user.token
     if (token) {
       config.header.Authorization = 'Bearer' + token
     }
@@ -53,12 +52,12 @@ http.interceptors.response.use(
     /* token过期 */
     if (error.data.code === 401) {
       Toast(error.data.message)
-      store.commit('token/removeToken')
       uni
         .reLaunch({
           url: '/pages/login/login'
         })
         .then()
+      store.commit('user/removeToken')
     }
 
     store.commit('config/setShowLoading', false)

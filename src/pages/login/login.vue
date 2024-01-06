@@ -1,7 +1,5 @@
 <script>
 import SpCard from '@/components/spCard.vue'
-import { ApiLogin } from '@/api/login'
-import { mapMutations } from 'vuex'
 
 export default {
   name: 'Login',
@@ -27,12 +25,9 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('token', ['setToken']),
     Login() {
       this.$refs.formRef.validate().then(async () => {
-        const { token } = await ApiLogin(this.formData.username, this.formData.password)
-        uni.setStorageSync('token', token)
-        this.setToken()
+        await this.$store.dispatch('user/Login', this.formData)
         await uni.switchTab({
           url: '/pages/index/index'
         })
@@ -49,16 +44,26 @@ export default {
       <view class="margin-bottom-xl">
         <uni-forms ref="formRef" :model="formData" :rules="rules" validate-trigger="blur">
           <uni-forms-item name="username">
-            <view class="flex align-center inp-box">
-              <view class="text-lg cuIcon-people margin-right-xs"></view>
-              <input v-model="formData.username" class="Inp text-df" placeholder="请输入账号" />
-            </view>
+            <uni-easyinput
+              v-model="formData.username"
+              prefix-icon="person"
+              placeholder="请输入账号"
+            ></uni-easyinput>
+            <!--            <view class="flex align-center inp-box">-->
+            <!--              <view class="text-lg cuIcon-people margin-right-xs"></view>-->
+            <!--              <input v-model="formData.username" class="Inp text-df" placeholder="请输入账号" />-->
+            <!--            </view>-->
           </uni-forms-item>
           <uni-forms-item name="password">
-            <view class="flex align-center inp-box">
-              <view class="text-lg cuIcon-lock margin-right-xs"></view>
-              <input v-model="formData.password" class="Inp text-df" placeholder="请输入密码" />
-            </view>
+            <uni-easyinput
+              v-model="formData.password"
+              prefix-icon="locked"
+              placeholder="请输入密码"
+            ></uni-easyinput>
+            <!--            <view class="flex align-center inp-box">-->
+            <!--              <view class="text-lg cuIcon-lock margin-right-xs"></view>-->
+            <!--              <input v-model="formData.password" class="Inp text-df" placeholder="请输入密码" />-->
+            <!--            </view>-->
           </uni-forms-item>
         </uni-forms>
       </view>

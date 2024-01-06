@@ -3,13 +3,13 @@ import store from '@/store'
 import { ApiInitConfig } from '@/api/public'
 export default {
   onLaunch: function () {
+    if (store.state.user.token) {
+      uni.switchTab({
+        url: '/pages/index/index'
+      })
+    }
     ApiInitConfig().then((res) => {
       store.commit('config/getConfig', res)
-      const token = store.state.token.token
-      if (token)
-        uni.switchTab({
-          url: '/pages/index/index'
-        })
     })
   },
   onShow: function () {
