@@ -1,5 +1,4 @@
 import { ApiGetLoginInfo, ApiLogin, ApiLogout } from '@/api/login'
-import store from '@/store'
 
 export default {
   namespaced: true,

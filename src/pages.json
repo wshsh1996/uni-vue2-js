@@ -49,13 +49,19 @@
       "style": {
         "navigationBarTitleText": "选择优惠券",
         "enablePullDownRefresh": false
-
       }
     },
     {
       "path": "pages/index/components/giveSubCard",
       "style": {
         "navigationBarTitleText": "赠送次卡",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/order/components/endPrice",
+      "style": {
+        "navigationBarTitleText": "收尾款",
         "enablePullDownRefresh": false
       }
     }

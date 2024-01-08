@@ -9,11 +9,21 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    des: {
+      type: String,
+      default: ''
     }
   },
   emits: ['confirm', 'cancel'],
   data() {
     return {}
+  },
+  watch: {
+    modalVisible(newVal, oldVal) {
+      console.log(newVal, 'new')
+      console.log(oldVal, 'old')
+    }
   },
   methods: {
     confirm() {
@@ -29,7 +39,10 @@ export default {
 <template>
   <view class="cu-modal" :class="modalVisible ? 'show' : ''">
     <view class="cu-dialog bg-white">
-      <view class="padding-tb-xl flex align-center justify-center tip">{{ title }}</view>
+      <view class="padding-tb-lg flex flex-direction align-center justify-center tip">
+        <view>{{ title }}</view>
+        <view v-if="des" class="text-gray des">{{ des }}</view>
+      </view>
       <view class="cu-bar">
         <view class="flex-sub bottom-btn" @tap="cancel"> 取消 </view>
         <view class="flex-sub bottom-btn-confirm" @tap="confirm"> 确定 </view>
@@ -41,8 +54,12 @@ export default {
 <style scoped lang="scss">
 .tip {
   height: 220rpx;
-  font-size: 30rpx;
+  font-size: 32rpx;
   font-weight: bold;
+}
+.des {
+  font-size: 30rpx;
+  margin-top: 10rpx;
 }
 .bottom-btn,
 .bottom-btn-confirm {

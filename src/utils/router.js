@@ -30,7 +30,6 @@ export function ToPath(url, successEmit = null, data = {}, isLogin = true) {
     return
   }
   if (isLogin && !store.state.user.token) {
-    console.log(store.state.user.token, 'token')
     store.commit('user/removeToken')
     store.commit('user/logout')
     uni

@@ -17,3 +17,12 @@ export function getOrderList(page = 1, page_size = 10, status, keyword) {
     }
   })
 }
+
+/**
+ * 退订金/收尾款
+ * @param id 订单id
+ * @param data 内容  status 3收尾款 4退订金  final_payment 最终支付  voucher：【】凭证
+ * */
+export function ApiReOrPrOrder(id, data) {
+  return http.put(`/customer_order/${id}`, data)
+}

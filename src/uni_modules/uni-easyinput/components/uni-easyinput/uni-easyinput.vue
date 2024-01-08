@@ -1,6 +1,7 @@
 <template>
 	<view class="uni-easyinput" :class="{ 'uni-easyinput-error': msg }" :style="boxStyle">
 		<view class="uni-easyinput__content" :class="inputContentClass" :style="inputContentStyle">
+      <slot name="left"></slot>
 			<uni-icons v-if="prefixIcon" class="content-clear-icon" :type="prefixIcon" color="#c0c4cc" @click="onClickIcon('prefix')" size="22"></uni-icons>
 			<textarea
 				v-if="type === 'textarea'"
@@ -70,6 +71,7 @@
 					@click="onClear"
 				></uni-icons>
 			</template>
+
 			<slot name="right"></slot>
 		</view>
 	</view>

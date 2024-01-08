@@ -4,6 +4,7 @@ import { ApiInitConfig } from '@/api/public'
 export default {
   onLaunch: function () {
     if (store.state.user.token) {
+      store.dispatch('user/getUserInfo')
       uni.switchTab({
         url: '/pages/index/index'
       })

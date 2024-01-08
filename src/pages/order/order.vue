@@ -1,32 +1,3 @@
-<template>
-  <sp-card>
-    <view class="fixedTab tabNav">
-      <!--   搜索栏   -->
-      <view>
-        <sp-search></sp-search>
-      </view>
-      <!--   tabs   -->
-      <view>
-        <sp-tabs
-          v-model:value="tabIndex"
-          :tab-width="160"
-          :tabs="tabList"
-          @change="swiperChange"
-        ></sp-tabs>
-      </view>
-    </view>
-    <!--  列表加载  -->
-    <me-scroll-body
-      :top="bodyTop + 'px'"
-      @init="mescrollInit"
-      @down="downCallback"
-      @up="upCallback"
-    >
-      <order-list :list="list"></order-list>
-    </me-scroll-body>
-  </sp-card>
-</template>
-
 <script>
 import SpCard from '@/components/spCard.vue'
 import SpSearch from '@/components/spSearch.vue'
@@ -55,7 +26,8 @@ export default {
       pageSize: 10,
       total: 0,
       list: [],
-      is_member: 0
+      is_member: 0,
+      visible: false
     }
   },
 
@@ -102,5 +74,35 @@ export default {
   }
 }
 </script>
+
+<template>
+  <sp-card>
+    <view class="fixedTab tabNav">
+      <!--   搜索栏   -->
+      <view>
+        <sp-search></sp-search>
+      </view>
+
+      <!--   tabs   -->
+      <view>
+        <sp-tabs
+          v-model:value="tabIndex"
+          :tab-width="160"
+          :tabs="tabList"
+          @change="swiperChange"
+        ></sp-tabs>
+      </view>
+    </view>
+    <!--  列表加载  -->
+    <me-scroll-body
+      :top="bodyTop + 'px'"
+      @init="mescrollInit"
+      @down="downCallback"
+      @up="upCallback"
+    >
+      <order-list :list="list"></order-list>
+    </me-scroll-body>
+  </sp-card>
+</template>
 
 <style lang="scss"></style>
