@@ -22,7 +22,7 @@
       @down="downCallback"
       @up="upCallback"
     >
-      <sp-list :list="list"></sp-list>
+      <order-list :list="list"></order-list>
     </me-scroll-body>
   </sp-card>
 </template>
@@ -32,14 +32,14 @@ import SpCard from '@/components/spCard.vue'
 import SpSearch from '@/components/spSearch.vue'
 import SpTabs from '@/components/spTabs.vue'
 import MeScrollBody from '@/uni_modules/mescroll-uni/components/mescroll-body/mescroll-body.vue'
-import SpList from '@/components/spList.vue'
 import { getRect } from '@/utils/lib'
 import MescrollMixin from '@/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-mixins'
 import { getOrderList } from '@/api/order'
+import OrderList from '@/pages/order/components/orderList.vue'
 
 export default {
   name: 'Index', // 使用mixin
-  components: { SpTabs, SpSearch, SpCard, MeScrollBody, SpList },
+  components: { OrderList, SpTabs, SpSearch, SpCard, MeScrollBody },
   mixins: [MescrollMixin],
   data() {
     return {

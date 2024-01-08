@@ -48,22 +48,18 @@ export default {
               v-model="formData.username"
               prefix-icon="person"
               placeholder="请输入账号"
+              :input-border="false"
+              primary-color="var(--main-color)"
             ></uni-easyinput>
-            <!--            <view class="flex align-center inp-box">-->
-            <!--              <view class="text-lg cuIcon-people margin-right-xs"></view>-->
-            <!--              <input v-model="formData.username" class="Inp text-df" placeholder="请输入账号" />-->
-            <!--            </view>-->
           </uni-forms-item>
           <uni-forms-item name="password">
             <uni-easyinput
               v-model="formData.password"
               prefix-icon="locked"
               placeholder="请输入密码"
+              :input-border="false"
+              primary-color="var(--main-color)"
             ></uni-easyinput>
-            <!--            <view class="flex align-center inp-box">-->
-            <!--              <view class="text-lg cuIcon-lock margin-right-xs"></view>-->
-            <!--              <input v-model="formData.password" class="Inp text-df" placeholder="请输入密码" />-->
-            <!--            </view>-->
           </uni-forms-item>
         </uni-forms>
       </view>
