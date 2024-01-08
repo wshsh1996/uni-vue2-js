@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.idea/
+src/uni_modules/
+src/colorUi/
+shims-uni.d.ts
